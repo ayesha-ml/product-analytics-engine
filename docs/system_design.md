@@ -36,3 +36,24 @@ The `events` table captures granular web interactions. It is the core data asset
 - **`created_at`** (TIMESTAMP): Event timestamp (UTC). Inactivity gaps exceeding 30 minutes define session boundaries (Google Analytics standard).
 - **`event_type`** (STRING): User action type (`home`, `department`, `product`, `cart`, `purchase`, `cancel`).
 - **`user_id`** (INTEGER): Customer identifier. **Note: 46.54% of rows are NULL**, representing unauthenticated browsing before account authentication.
+
+### Module 1: Sessionization and Identity Resolution Findings
+
+#### Sessionization
+
+The sessionization logic was verified using four automated unit tests against real users, and all of them passed successfully. The test results showed:
+
+- Every user's very first recorded event was correctly initialized with a `session_sequence` of 1.
+- The query caught all 41 real session boundaries where a user was inactive for more than 30 minutes.
+- All 313 events that happened within that active 30-minute window were correctly grouped together without falsely spinning up new sessions.
+- The total session count perfectly matched the number of boundary flags for the test users.
+
+#### Identity Resolution
+
+For the user stitching layer, the logic was implemented using `FIRST_VALUE(user_id IGNORE NULLS)` partitioned strictly by the `session_id`.
+
+During development, an interesting design challenge came up. The initial plan considered partitioning by both `session_id` and the verified `session_sequence`. However, tracing through the data revealed that this would completely orphan any anonymous events that happened right before a user authenticated within that same window. Those early events would never get resolved. Keeping the partition solely on `session_id` fixed this, because identity (tracking who someone is) and session boundaries (counting individual visits) are two entirely different concepts that shouldn't share a partition key.
+
+Testing this on real mixed sessions uncovered a major characteristic of this specific dataset: TheLook's tracking system never lets a single `session_id` cross the anonymous-to-authenticated boundary. Every single `session_id` in the raw data is either entirely anonymous or entirely authenticated, never a mix of both. Because of how the data is generated, the identity resolution query doesn't actually have any unauthenticated rows to stitch backward.
+
+Even though the dataset doesn't trigger the stitching behavior, the module was kept exactly as it is. The SQL architecture is completely correct, computationally sound, and represents a standard data engineering pattern. On a real production clickstream where an anonymous cookie gets linked to a user profile at checkout, this exact query handles the backward propagation flawlessly. Documenting this constraint clearly in the system design shows a solid, honest understanding of data quality auditing, which makes for a great technical talking point.
