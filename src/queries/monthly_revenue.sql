@@ -7,7 +7,7 @@
 -- =============================================================
 
 WITH monthly_sales AS(
-    SELECT DATE_TRUNC(o.created_at,MONTH) as month,
+    SELECT DATE_TRUNC(DATE(o.created_at), MONTH) AS month,
     SUM (oi.sale_price) AS revenue
 
     FROM `bigquery-public-data.thelook_ecommerce.orders` o
@@ -28,5 +28,6 @@ SELECT
         ) *100,2
     ) AS MOM_growth_pct
 FROM monthly_sales
+WHERE month < DATE_TRUNC(CURRENT_DATE(), MONTH)
 ORDER BY month;
 

@@ -87,3 +87,77 @@ The distribution analysis of milestone flags and final abandonment states yielde
 3. **Primary Growth Friction Points:** Growth analytics and optimization efforts should focus entirely on the two true leakage buckets:
    - **Cart Abandonment (36.6%):** High product interest that failed to clear the "Add to Cart" intent barrier. Points to pricing friction, missing reviews, or weak product-page layouts.
    - **Checkout Leakage (36.7%):** High-intent users who built a cart but dropped out during the shipping configuration, account creation, or payment collection phases.
+
+---
+
+## Module 2 — Retention Analytics
+
+### Business Question
+
+Are we keeping the customers we acquire, or is growth entirely dependent
+on new customer volume?
+
+### Analytical Approach
+
+Two SQL queries feed this module:
+
+**cohort_retention.sql** — assigns every customer to their acquisition
+cohort (the calendar month of their first order) using `MIN(created_at)`
+grouped by `user_id`. Then joins every subsequent order back to that
+cohort month and calculates `DATE_DIFF` in months to produce a retention
+matrix. Filtered to `status IN ('Complete', 'Shipped')` throughout —
+cancelled and returned orders do not represent real retained revenue.
+
+**monthly_revenue.sql** — aggregates revenue by month using a JOIN
+between orders and order_items, then applies `LAG(revenue) OVER (ORDER
+BY month)` to compute month-over-month growth rate using `SAFE_DIVIDE`
+to handle the first-month NULL boundary cleanly. Filtered to exclude
+the current incomplete month using `WHERE month < DATE_TRUNC
+(CURRENT_DATE(), MONTH)` — TheLook's synthetic data is cut off
+mid-month, which otherwise produces a large artificial negative MoM
+swing in the final data point.
+
+### Key Design Decisions
+
+| Decision                                                       | Reasoning                                                                                                                                                                                                                       |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Use `MIN(created_at)` not `ROW_NUMBER()` for cohort assignment | We need the acquisition month (a date), not the specific row. `MIN()` with `GROUP BY` is the correct, simpler tool here. `ROW_NUMBER()` would be needed only if we required the specific first-order row for a downstream join. |
+| Filter to Complete + Shipped only                              | Established Day 2 as the correct revenue definition. Cancelled/Returned orders inflate cohort sizes and distort retention rates.                                                                                                |
+| Exclude current month from revenue                             | TheLook is cut off mid-month — the final bar always shows artificially low revenue, making the last MoM figure meaningless.                                                                                                     |
+
+### Findings
+
+| Metric                    | Value                            |
+| ------------------------- | -------------------------------- |
+| Total cohorts analyzed    | 91 monthly cohorts (2019 — 2026) |
+| Average Month-1 retention | 2.49%                            |
+| Average Month-3 retention | 2.00%                            |
+| Latest MoM revenue growth | 31.29%                           |
+
+### Visualizations
+
+**Cohort heatmap:** Confirms near-zero repeat purchase rates across
+almost all 91 cohorts. The most recent cohorts (late 2026) show
+artificially elevated retention in early months — this is because
+recent cohorts have had less time for attrition to occur, producing
+survivorship bias in the short-term metrics.
+
+**Revenue trend:** Consistent upward trajectory from 2019 through
+mid-2026. The 600%+ MoM spike at the start of 2019 is a synthetic
+data artifact — the dataset starts from near-zero revenue, so early
+percentage changes are mathematically extreme. From mid-2019 onward,
+MoM growth stabilizes in the 10-40% range, consistent with a scaling
+business.
+
+### Diagnosis
+
+Average Month-1 retention of 2.49% indicates near-zero repeat purchase
+behavior. Fewer than 3 in 100 customers return within 30 days of their
+first purchase. Revenue growth is driven entirely by new customer
+acquisition volume, not loyalty — a structurally fragile model where
+any slowdown in new user acquisition directly impacts revenue with no
+loyal customer base to absorb it.
+
+Primary recommendation: invest in post-purchase retention mechanics
+(email sequences, loyalty incentives, personalized re-engagement
+campaigns) before scaling paid acquisition spend further.

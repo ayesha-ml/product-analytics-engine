@@ -1,0 +1,53 @@
+Collecting nbformat
+  Using cached nbformat-5.10.4-py3-none-any.whl.metadata (3.6 kB)
+Requirement already satisfied: ipykernel in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (7.3.0)
+Collecting fastjsonschema>=2.15 (from nbformat)
+  Using cached fastjsonschema-2.21.2-py3-none-any.whl.metadata (2.3 kB)
+Collecting jsonschema>=2.6 (from nbformat)
+  Using cached jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: jupyter-core!=5.0.*,>=4.12 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from nbformat) (5.9.1)
+Requirement already satisfied: traitlets>=5.1 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from nbformat) (5.15.1)
+Requirement already satisfied: comm>=0.1.1 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipykernel) (0.2.3)
+Requirement already satisfied: debugpy>=1.6.5 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipykernel) (1.8.21)
+Requirement already satisfied: ipython>=7.23.1 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipykernel) (9.14.1)
+Requirement already satisfied: jupyter-client>=8.9.0 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipykernel) (8.9.1)
+Requirement already satisfied: matplotlib-inline>=0.1 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipykernel) (0.2.2)
+Requirement already satisfied: nest-asyncio2>=1.7.0 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipykernel) (1.7.2)
+Requirement already satisfied: packaging>=22 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipykernel) (26.2)
+Requirement already satisfied: psutil>=5.7 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipykernel) (7.2.2)
+Requirement already satisfied: pyzmq>=25 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipykernel) (27.1.0)
+Requirement already satisfied: tornado>=6.4.1 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipykernel) (6.5.7)
+Requirement already satisfied: colorama>=0.4.4 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipython>=7.23.1->ipykernel) (0.4.6)
+Requirement already satisfied: decorator>=5.1.0 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipython>=7.23.1->ipykernel) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipython>=7.23.1->ipykernel) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipython>=7.23.1->ipykernel) (0.20.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipython>=7.23.1->ipykernel) (3.0.52)
+Requirement already satisfied: pygments>=2.14.0 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipython>=7.23.1->ipykernel) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipython>=7.23.1->ipykernel) (0.6.3)
+Requirement already satisfied: typing_extensions>=4.6 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from ipython>=7.23.1->ipykernel) (4.15.0)
+Requirement already satisfied: wcwidth in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=7.23.1->ipykernel) (0.8.1)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from jedi>=0.18.2->ipython>=7.23.1->ipykernel) (0.8.7)
+Collecting attrs>=22.2.0 (from jsonschema>=2.6->nbformat)
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=2.6->nbformat)
+  Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=2.6->nbformat)
+  Using cached referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.25.0 (from jsonschema>=2.6->nbformat)
+  Downloading rpds_py-2026.6.3-cp311-cp311-win_amd64.whl.metadata (4.2 kB)
+Requirement already satisfied: python-dateutil>=2.8.2 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from jupyter-client>=8.9.0->ipykernel) (2.9.0.post0)
+Requirement already satisfied: platformdirs>=2.5 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from jupyter-core!=5.0.*,>=4.12->nbformat) (4.10.0)
+Requirement already satisfied: six>=1.5 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from python-dateutil>=2.8.2->jupyter-client>=8.9.0->ipykernel) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel) (3.0.1)
+Requirement already satisfied: pure-eval in c:\Users\Admin\Desktop\Summer\project\thelook-ecommerce-analytics\venv\Lib\site-packages (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel) (0.2.3)
+Using cached nbformat-5.10.4-py3-none-any.whl (78 kB)
+Using cached fastjsonschema-2.21.2-py3-none-any.whl (24 kB)
+Using cached jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Using cached referencing-0.37.0-py3-none-any.whl (26 kB)
+Downloading rpds_py-2026.6.3-cp311-cp311-win_amd64.whl (223 kB)
+Installing collected packages: fastjsonschema, rpds-py, attrs, referencing, jsonschema-specifications, jsonschema, nbformat
+   ---------------------------------------- 0/7 [fastjsonschema]   ---------------------------------------- 0/7 [fastjsonschema]   ---------------------------------------- 0/7 [fastjsonschema]   ----- ---------------------------------- 1/7 [rpds-py]   ----------- ---------------------------- 2/7 [attrs]   ----------- ---------------------------- 2/7 [attrs]   ----------- ---------------------------- 2/7 [attrs]   ----------- ---------------------------- 2/7 [attrs]   ----------- ---------------------------- 2/7 [attrs]   ----------- ---------------------------- 2/7 [attrs]   ----------- ---------------------------- 2/7 [attrs]   ----------- ---------------------------- 2/7 [attrs]   ----------------- ---------------------- 3/7 [referencing]   ----------------- ---------------------- 3/7 [referencing]   ----------------- ---------------------- 3/7 [referencing]   ----------------- ---------------------- 3/7 [referencing]   ---------------------- ----------------- 4/7 [jsonschema-specifications]   ---------------------- ----------------- 4/7 [jsonschema-specifications]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------- ----------- 5/7 [jsonschema]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------- ----- 6/7 [nbformat]   ---------------------------------------- 7/7 [nbformat]
+Successfully installed attrs-26.1.0 fastjsonschema-2.21.2 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 nbformat-5.10.4 referencing-0.37.0 rpds-py-2026.6.3
