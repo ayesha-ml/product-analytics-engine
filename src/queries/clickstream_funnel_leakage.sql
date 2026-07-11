@@ -33,3 +33,6 @@ SELECT
         ELSE 'Bounced Immediately'
     END AS abandonment_stage
 FROM session_flags;
+
+
+
