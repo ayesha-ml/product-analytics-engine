@@ -1,6 +1,6 @@
 # Product Analytics & Experimentation Engine
 
-**An end-to-end product analytics platform built on Google BigQuery's TheLook eCommerce public dataset, demonstrating the core analytical workflow of a growth data scientist: clickstream modeling, cohort retention analysis, frequentist A/B testing, and behavioral ML segmentation.**
+An end-to-end product analytics platform built on Google BigQuery's `thelook_ecommerce` dataset. This repository demonstrates the core technical and analytical workflow of a Growth Data Scientist: architecting high-performance SQL pipelines, modeling user clickstreams, running statistical experiments, and building predictive behavioral segments to drive product-led growth.
 
 ---
 
