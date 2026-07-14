@@ -48,7 +48,7 @@ _Are we retaining the cohorts we acquire, and how is it impacting growth trends?
 ### 3. Experimentation Engine
 
 _Rigorous frequentist framework to evaluate product changes._
-![Experimentation Engine](assets/experimentation.png)
+![Experimentation Engine](assets/experimentation.PNG)
 
 ### 4. Customer Segmentation
 
