@@ -14,27 +14,24 @@ An end-to-end product analytics platform built on Google BigQuery's `thelook_eco
 
 - Streamlit Dashboard (Multi-page app with cached BigQuery connections)
 
+
 ```mermaid
 flowchart TD
-    A[("Google BigQuery\nTheLook eCommerce\n7 Tables · 2.4M Events")] --> B
+    A[("Google BigQuery\nTheLook eCommerce Public Dataset\n7 Tables · 2.4M Clickstream Events")] --> B
 
-    B["SQL Analytics Layer\nWindow Functions\nLAG · ROW_NUMBER · NTILE · FIRST_VALUE"] --> C
+    B["SQL Analytics Layer\nAdvanced Window Functions\nLAG · ROW_NUMBER · NTILE · FIRST_VALUE"] --> C & D & E & F
 
-    B --> D
-    B --> E
-    B --> F
+    C["Funnel Analytics\nClickstream Sessionization\nIdentity Resolution\nConversion Milestone Mapping"]
 
-    C["Module 1 — Funnel\nSessionization · Identity Resolution\nFunnel Milestone Aggregation"]
-    D["Module 2 — Retention\nCohort Matrix · MoM Revenue\nDATE_DIFF · LAG"]
-    E["Module 3 — Experimentation\nPower Analysis · SRM · Z-Test\nscipy · statsmodels"]
-    F["Module 4 — Segmentation\nRFM Scoring · RobustScaler\nK-Means · scikit-learn"]
+    D["Retention Analytics\nMonthly Cohort Matrix\nMoM Revenue Velocity\nDATE_DIFF · LAG"]
 
-    C --> G
-    D --> G
-    E --> G
-    F --> G
+    E["Experimentation Engine\nPre-Test Power Analysis\nSRM Detection · Pooled Z-Test\nscipy · statsmodels"]
 
-    G[["Streamlit Dashboard\n4 Pages · Cached BigQuery Connections\nLive Interactive Analytics"]]
+    F["Behavioral Segmentation\nRFM Quintile Scoring\nRobustScaler · K-Means\nscikit-learn"]
+
+    C & D & E & F --> G
+
+    G[["Streamlit Analytics Dashboard\n4-Page Interactive Application\nCached BigQuery Connections · Live Inference"]]
 ```
 
 ---
